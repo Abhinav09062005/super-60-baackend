@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import { dbConnect } from './config/dbConfig.js';
 
-
+// npm i express dotenv cors mongoose
 dotenv.config();
 
 const app = express()
