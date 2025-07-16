@@ -15,6 +15,7 @@ app.get('/get-response', (req, res) => {
   res.send('Hello, Akash Raj!')
 })
 
+
 dbConnect();
 
 app.listen(process.env.PORT, () => {
