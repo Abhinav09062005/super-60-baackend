@@ -68,7 +68,15 @@ export const getAllStudents = async(req, res) => {
                 message: "Please enter a valid email",
                 success: false
             });
+
         }
+          const user = await Student.find({ email });
+          if (!user) {
+              return res.status(404).json({
+                  message: "User not found",
+                  success: false
+              });
+          }
     } catch (err) {
         console.error(err);
         return res.status(500).json({
