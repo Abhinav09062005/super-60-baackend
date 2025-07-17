@@ -63,6 +63,12 @@ export const getAllStudents = async(req, res) => {
                 success: false
             });
         };
+        if (!email.includes('@') || !email.includes('.')) {
+            return res.status(400).json({
+                message: "Please enter a valid email",
+                success: false
+            });
+        }
     } catch (err) {
         console.error(err);
         return res.status(500).json({
