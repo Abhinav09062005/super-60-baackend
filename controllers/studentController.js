@@ -4,6 +4,9 @@ import bcrypt from "bcryptjs";
 
 
 export const registerStudent = async(req, res)=>{
+    try{
+
+   
     const {name, email,phoneNo,password} = req.body
     // 1. req.body
     // 2. req.params
@@ -42,3 +45,35 @@ export const registerStudent = async(req, res)=>{
     })
 
 }
+catch(err){
+    console.error(err);
+    return res.status(500).json({
+        message:"Internal server error",
+        success: false
+    })
+}
+
+}
+export const getAllStudents = async(req, res) => {
+    try {
+        const {email, password} = req.body;
+        if (!email || !password) {
+            return res.status(400).json({
+                message: "Please provide email and password",
+                success: false
+            });
+        };
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            message: "Internal server error",
+            success: false
+        });
+    }
+}
+
+
+
+
+
+
